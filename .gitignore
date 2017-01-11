@@ -1,4 +1,7 @@
 /recentf
 /elpa
 /auto-save-list
+<<<<<<< HEAD
 custom.el
+=======
+>>>>>>> f9399a9... Initialize my emacs config
