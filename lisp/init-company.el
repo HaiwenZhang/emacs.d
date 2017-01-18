@@ -1,9 +1,14 @@
-(require-package 'company)
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
-(add-hook 'after-init-hook 'global-company-mode)
-
-(require-package 'company-flx)
-(with-eval-after-load 'company
-  (company-flx-mode +1))
+(use-package company-flx
+  :ensure t
+  :config
+  (progn
+    (with-eval-after-load 'company
+      (company-flx-mode +1))
+    ))
 
 (provide 'init-company)

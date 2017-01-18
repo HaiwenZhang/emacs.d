@@ -17,27 +17,40 @@
 (setq-default cursor-type 'bar)
 (set-cursor-color "green")
 
-;; ============================================================
+;; -----------------------------------------------------------------------------
+;; setting font for mac system
+;; -----------------------------------------------------------------------------
 ;; Setting English Font
 (set-face-attribute
- 'default nil :font "Monaco 15")
-;; Setting Chinese Font
+ 'default nil :font "Monaco 14")
+;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
-		    charset
-		    (font-spec :family "Source Code Pro" :size 14)))
+                    charset
+                    (font-spec :family "PingFang SC" :size 14)))
 
-(require-package 'powerline)
-(setq powerline-default-separator 'utf-8)
-(require-package 'spaceline)
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
+;; setting theme
+(use-package monokai-theme
+  :ensure t
+  )
 
+(use-package nyan-mode
+  :ensure t
+  :init (nyan-mode 1))
 
-(require-package 'beacon)
-(beacon-mode 1)
+;; flashes the cursor's line when you scroll
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  (setq beacon-color "#666600"))
 
-(require-package 'mode-icons)
-(mode-icons-mode t)
+;; powerline setting
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme)
+  (setq powerline-default-separator 'utf-8))
+
 
 (provide 'init-ui)
