@@ -7,15 +7,21 @@
 ;; 显示行号
 (global-linum-mode 1)
 
-;; 高亮当前行
-(global-hl-line-mode t)
+;; setting theme
+;; (use-package monokai-theme
+;;   :ensure t
+;;   )
 
-;; 更改光标的样式（不能生效，解决方案见第二集）
-(setq cursor-type 'bar)
+(use-package zenburn-theme
+  :ensure t)
 
 ;;设置光标
 (setq-default cursor-type 'bar)
 (set-cursor-color "green")
+;; 高亮当前行
+(global-hl-line-mode t)
+(set-face-background 'hl-line "#3e4446")
+(set-face-foreground 'highlight nil)
 
 ;; -----------------------------------------------------------------------------
 ;; setting font for mac system
@@ -28,11 +34,6 @@
   (set-fontset-font (frame-parameter nil 'font)
                     charset
                     (font-spec :family "PingFang SC" :size 14)))
-
-;; setting theme
-(use-package monokai-theme
-  :ensure t
-  )
 
 (use-package nyan-mode
   :ensure t
