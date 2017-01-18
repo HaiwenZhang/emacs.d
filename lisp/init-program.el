@@ -61,4 +61,19 @@
   :ensure t
   :config (popwin-mode 1))
 
+(use-package projectile
+  :init (projectile-mode 1)
+  :ensure t
+  :config
+  (progn
+    (setq projectile-enable-caching t)
+    (setq projectile-require-project-root nil)
+    (setq projectile-completion-system 'ivy)
+    (add-to-list 'projectile-globally-ignored-files ".DS_Store")))
+
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-on))
+
 (provide 'init-program)
