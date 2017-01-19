@@ -12,10 +12,8 @@
 ;; 设置 org-agenda 打开快捷键
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; (setq org-agenda-custom-commands
-;;       '(("c" "Simple agenda view"
-;;          ((agenda "")
-;; 	  (alltodo "")))))
+(add-hook 'after-init-hook 'org-agenda-list)
+(setq org-agenda-window-setup 'current-window)
 
 (use-package org-ac
   :ensure t
@@ -68,7 +66,7 @@
   (select-frame-by-name "capture")
   (delete-other-windows)
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-	  (org-capture)))
+    (org-capture)))
 
 
 (provide 'init-org)

@@ -10,6 +10,14 @@
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;; 快速打开配置文件
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
+(global-set-key (kbd "<f2>") 'open-init-file)
+
 ;; package manage
 (require 'init-package)
 
@@ -18,7 +26,10 @@
 (require 'init-ui)
 (require 'init-swiper)
 (require 'init-org)
+(require 'init-exec-path-from-shell)
 ;; program setting
 (require 'init-git)
 (require 'init-company)
 (require 'init-program)
+(require 'init-ruby)
+(require 'init-go)
