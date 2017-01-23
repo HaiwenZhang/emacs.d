@@ -32,4 +32,5 @@
 (require 'init-company)
 (require 'init-program)
 (require 'init-ruby)
+(require 'init-python)
 (require 'init-go)
