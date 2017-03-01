@@ -27,6 +27,7 @@
 (require 'init-swiper)
 (require 'init-org)
 (require 'init-exec-path-from-shell)
+(require 'init-dired)
 ;; program setting
 (require 'init-git)
 (require 'init-company)
@@ -34,3 +35,5 @@
 (require 'init-ruby)
 (require 'init-python)
 (require 'init-go)
+(require 'init-yaml)
+(require 'init-markdown)

@@ -28,12 +28,12 @@
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font
 (set-face-attribute
- 'default nil :font "Monaco 14")
+ 'default nil :font "Monaco 15")
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "PingFang SC" :size 14)))
+                    (font-spec :family "PingFang SC" :size 15)))
 
 (use-package nyan-mode
   :ensure t
