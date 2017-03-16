@@ -14,4 +14,12 @@
   :init
   (global-undo-tree-mode))
 
+(use-package all-the-icons
+  :ensure t)
+
+(use-package neotree
+  :ensure t
+  :bind ("<f8>" . neotree-toggle)
+  :config (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
 (provide 'init-better-defaults)

@@ -1,13 +1,27 @@
 (use-package magit
   :ensure t
+  :bind (("C-x g" . magit-status)
+	 ("C-x M-g" . magit-dispatch-popup)
+	 ("C-x M-l" . magit-log-buffer-file))
   :config
   (progn
     (setq magit-completing-read-function 'ivy-completing-read)
-    (setq magit-branch-arguments nil))
-  :bind (("C-x g" . magit-status)
-	 ("C-x M-g" . magit-dispatch-popup)
-	 ("C-x M-l" . magit-log-buffer-file)
-	 ))
+    (setq magit-branch-arguments nil)
+    ))
+
+(use-package fullframe
+  :ensure t)
+
+(with-eval-after-load 'magit
+  (fullframe magit-status magit-mode-quit-window))
+
+(use-package git-messenger
+  :ensure t
+  :bind ("C-x v p" . git-messenger:popup-buffer-hook))
+
+(use-package magithub
+  :after magit
+  :config (magithub-feature-autoinject t))
 
 (use-package git-gutter
   :ensure t

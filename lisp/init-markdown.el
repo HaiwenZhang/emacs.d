@@ -6,4 +6,7 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package gh-md
+  :ensure t)
+
 (provide 'init-markdown)

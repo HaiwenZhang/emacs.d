@@ -8,12 +8,12 @@
 (global-linum-mode 1)
 
 ;; setting theme
-;; (use-package monokai-theme
-;;   :ensure t
-;;   )
+(use-package monokai-theme
+  :ensure t
+  )
 
-(use-package zenburn-theme
-  :ensure t)
+;; (use-package zenburn-theme
+;;   :ensure t)
 
 ;;设置光标
 (setq-default cursor-type 'bar)
@@ -28,12 +28,12 @@
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font
 (set-face-attribute
- 'default nil :font "Monaco 15")
+ 'default nil :font "Source Code Pro 16")
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "PingFang SC" :size 15)))
+                    (font-spec :family "Source Code Pro" :size 15)))
 
 (use-package nyan-mode
   :ensure t
