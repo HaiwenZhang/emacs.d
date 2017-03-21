@@ -33,6 +33,7 @@
 (require 'init-company)
 (require 'init-program)
 (require 'init-ruby)
+(require 'init-web)
 (require 'init-python)
 (require 'init-go)
 (require 'init-yaml)

@@ -35,6 +35,12 @@
                     charset
                     (font-spec :family "Source Code Pro" :size 15)))
 
+(use-package default-text-scale
+  :ensure t
+  :bind(
+	("C-M-=" . default-text-scale-increase)
+	("C-M--" . default-text-scale-decrease)))
+
 (use-package nyan-mode
   :ensure t
   :init (nyan-mode 1))

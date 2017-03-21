@@ -11,4 +11,10 @@
       (company-flx-mode +1))
     ))
 
+(use-package yasnippet
+  :ensure t
+  :bind ("C-x y" . yas-insert-snippet)
+  :init
+    (yas-global-mode 1))
+
 (provide 'init-company)
