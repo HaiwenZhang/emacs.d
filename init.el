@@ -31,6 +31,7 @@
 ;; program setting
 (require 'init-git)
 (require 'init-company)
+(require 'init-flycheck)
 (require 'init-program)
 (require 'init-ruby)
 (require 'init-web)

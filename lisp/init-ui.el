@@ -8,8 +8,11 @@
 (global-linum-mode 1)
 
 ;; setting theme
-(use-package monokai-theme
-  :ensure t)
+;; (use-package monokai-theme
+;;   :ensure t)
+
+(use-package dakrone-theme
+   :ensure t)
 ;; (use-package zenburn-theme
 ;;   :ensure t)
 
@@ -42,42 +45,12 @@
 	("C-M-=" . default-text-scale-increase)
 	("C-M--" . default-text-scale-decrease)))
 
-;; (use-package nyan-mode
-;;   :ensure t
-;;   :init (nyan-mode 1))
-
-;; flashes the cursor's line when you scroll
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1)
-  (setq beacon-color "#666600"))
 
 ;; powerline setting
-;; (use-package powerline
-;;   :ensure t
-;;   :config
-;;   (powerline-default-theme)
-;;   (setq powerline-default-separator 'utf-8))
-
-(use-package spaceline
-  :ensure t)
-
-(use-package spaceline-all-the-icons
+(use-package powerline
   :ensure t
-  :after spaceline
   :config
-  (progn
-    (spaceline-all-the-icons-theme)
-    (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
-    (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
-    (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
-    (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
-    (setq spaceline-all-the-icons-icon-set-modified 'toggle)
-    (setq spaceline-all-the-icons-separator-type 'none)
-    (setq spaceline-all-the-icons-icon-set-bookmark 'heart)
-    (setq spaceline-all-the-icons-icon-set-flycheck-slim 'quote)
-    (setq spaceline-all-the-icons-icon-set-sun-time 'sun/moon)
+  (powerline-default-theme)
+  (setq powerline-default-separator 'utf-8))
 
-    ))
 (provide 'init-ui)
