@@ -3,6 +3,10 @@
 ;; 简化yes和no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(when *is-a-mac*
+  (setq mac-command-modifier 'super)
+  (setq mac-option-modifier 'meta))
+
 (use-package which-key
   :ensure t 
   :config
