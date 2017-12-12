@@ -25,7 +25,7 @@
 (require 'init-better-defaults)
 (require 'init-ui)
 (require 'init-swiper)
-(require 'init-org)
+;;(require 'init-org)
 (require 'init-exec-path-from-shell)
 (require 'init-dired)
 ;; program setting

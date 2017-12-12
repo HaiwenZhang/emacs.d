@@ -4,6 +4,9 @@
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
+;; close menu bar
+(menu-bar-mode -1)
+
 ;; 显示行号
 (global-linum-mode 1)
 
@@ -30,12 +33,12 @@
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font
 (set-face-attribute
- 'default nil :font "Source Code Pro 16")
+ 'default nil :font "Source Code Pro 13")
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "Source Code Pro" :size 15)))
+                    (font-spec :family "Source Code Pro" :size 14)))
 
 (use-package default-text-scale
   :ensure t
