@@ -41,9 +41,9 @@
     (global-set-key (kbd "C-c i")    'windmove-up)
     (global-set-key (kbd "C-c k")  'windmove-down))
 
-(use-package neotree
-  :ensure t
-  :bind ("<f8>" . neotree-toggle)
-  :config (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+;; (use-package neotree
+;;   :ensure t
+;;   :bind ("<f8>" . neotree-toggle)
+;;   :config (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 (provide 'init-better-defaults)

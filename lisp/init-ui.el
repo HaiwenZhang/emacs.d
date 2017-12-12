@@ -8,14 +8,14 @@
 (global-linum-mode 1)
 
 ;; setting theme
-(use-package monokai-theme
-  :ensure t)
+;; (use-package monokai-theme
+;;   :ensure t)
 
 ;; (use-package zenburn-theme
 ;;   :ensure t)
 
-;; (use-package gruvbox-theme
-;;   :ensure t)
+(use-package gruvbox-theme
+  :ensure t)
 
 ;;设置光标
 (setq-default cursor-type 'bar)
