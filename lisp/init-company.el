@@ -1,20 +1,45 @@
 (use-package company
   :ensure t
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 2)
 
-(use-package company-flx
+  (global-company-mode t)
+  )
+
+(use-package company-irony
+  :ensure t
+  :config 
+  (add-to-list 'company-backends 'company-irony)
+
+  )
+
+(use-package irony
   :ensure t
   :config
-  (progn
-    (with-eval-after-load 'company
-      (company-flx-mode +1))
-    ))
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  )
 
-(use-package yasnippet
+(use-package irony-eldoc
   :ensure t
-  :bind ("C-x y" . yas-insert-snippet)
-  :init
-    (yas-global-mode 1))
+  :config
+  (add-hook 'irony-mode-hook #'irony-eldoc))
+
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+(use-package company-jedi
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'jedi:setup)
+  )
+
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (provide 'init-company)

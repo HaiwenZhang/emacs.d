@@ -14,8 +14,17 @@
 ;; (use-package zenburn-theme
 ;;   :ensure t)
 
-(use-package gruvbox-theme
+(use-package solarized-theme
   :ensure t)
+(load-theme 'solarized-dark t)
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+;; make the fringe stand out from the background
+(setq solarized-distinct-fringe-background t)
+(setq x-underline-at-descent-line t)
+
+;; (use-package gruvbox-theme
+;;   :ensure t)
 
 ;;设置光标
 (setq-default cursor-type 'bar)

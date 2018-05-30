@@ -1,38 +1,29 @@
-(use-package rvm
+(use-package ruby-mode
+  :ensure t
+  :mode "\\.\\(rb\\|rake\\|\\gemspec\\|ru\\|\\(Rake\\|Gem\\|Guard\\|Cap\\|Vagrant\\)file\\)$")
+
+
+
+(use-package robe
   :ensure t
   :config
-  (rvm-use-default))
+  (eval-after-load 'company
+    '(push 'company-robe company-backends)))
+
+(use-package ruby-refactor
+  :ensure t
+  :diminish ruby-refactor-mode
+  :init (add-hook 'ruby-mode-hook #'ruby-refactor-mode-launch))
 
 (use-package ruby-hash-syntax
   :ensure t)
 
-
-(use-package robe
-  :ensure t)
-
-(add-hook 'ruby-mode-hook 'robe-mode)
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
-(use-package rinari
+;; Run a Ruby process in a buffer
+(use-package inf-ruby
   :ensure t
-  :config
-  (global-rinari-mode))
-
-(defun update-rails-ctags ()
-  (interactive)
-  (let ((default-directory (or (rinari-root) default-directory)))
-    (shell-command (concat "ctags -a -e -f " rinari-tags-file-name " --tag-relative -R app lib vendor test"))))
-
-(use-package projectile-rails
-  :ensure t
-  :config
-  (progn
-    (eval-after-load 'projectile
-      (add-hook 'projectile-mode-hook 'projectile-rails-on))))
-
+  :init
+  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
+  (add-hook 'compilation-filter-hook #'inf-ruby-auto-enter))
 
 
 (provide 'init-ruby)
