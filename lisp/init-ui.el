@@ -1,8 +1,8 @@
-;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
-(tool-bar-mode -1)
-
-;; 关闭文件滑动控件
-(scroll-bar-mode -1)
+;; Menu/Tool/Scroll bars
+(unless *is-a-mac* (menu-bar-mode -1))
+(and (bound-and-true-p tool-bar-mode) (tool-bar-mode -1))
+(and (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(and (bound-and-true-p horizontal-scroll-bar-mode) (horizontal-scroll-bar-mode -1))
 
 ;; 显示行号
 (global-linum-mode 1)
@@ -149,5 +149,16 @@
   "%-" ;; fill with '-'
   ))
 
+(use-package rainbow-identifiers
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(show-paren-mode 1)
 
 (provide 'init-ui)

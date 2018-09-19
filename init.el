@@ -28,7 +28,7 @@
 (require 'init-org)
 (require 'init-exec-path-from-shell)
 (require 'init-dired)
-;; program setting
+;; ;; program setting
 (require 'init-git)
 (require 'init-company)
 (require 'init-flycheck)
@@ -36,6 +36,7 @@
 (require 'init-program)
 (require 'init-ruby)
 (require 'init-web)
+(require 'init-js)
 (require 'init-python)
 (require 'init-go)
 (require 'init-yaml)
