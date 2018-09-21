@@ -42,3 +42,4 @@
 (require 'init-yaml)
 (require 'init-markdown)
 (require 'init-cpp)
+(require 'init-scala)

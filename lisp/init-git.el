@@ -34,4 +34,9 @@
 (use-package gitignore-mode
   :ensure t)
 
+(use-package magit-gitflow
+  :ensure t
+  :config
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+
 (provide 'init-git)

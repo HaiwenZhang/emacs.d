@@ -87,9 +87,11 @@
 
 (use-package projectile
   :ensure t
+  :demand
+  :init (setq projectile-use-git-grep t)
   :config
   (progn
-    (projectile-mode 1)
+    (projectile-global-mode 1)
     (setq projectile-enable-caching t)
     (setq projectile-require-project-root nil)
     (setq projectile-completion-system 'ivy)
