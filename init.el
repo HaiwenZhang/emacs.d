@@ -8,6 +8,9 @@
 
 (defconst *is-a-mac* (eq system-type 'darwin))
 
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; 快速打开配置文件

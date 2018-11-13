@@ -116,5 +116,12 @@
   :ensure
   )
 
+(use-package autoinsert
+  :ensure t
+  :config
+  (setq auto-insert-query nil)
+  (setq auto-insert-directory (locate-user-emacs-file "template"))
+  (add-hook 'find-file-hook 'auto-insert)
+  (auto-insert-mode t))
 
 (provide 'init-better-defaults)
