@@ -6,6 +6,7 @@
 ;; Keywords: lisp
 
 (use-package treemacs
+  :ensure t
   :defines winum-keymap
   :commands (treemacs-follow-mode
              treemacs-filewatch-mode
@@ -86,6 +87,7 @@
 
 ;; Projectile integration for treemacs
 (use-package treemacs-projectile
+  :ensure t
   :after projectile
   :bind (([M-f8] . treemacs-projectile)
          :map projectile-command-map
