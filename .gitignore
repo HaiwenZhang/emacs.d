@@ -6,3 +6,8 @@ custom.el
 projectile-bookmarks.eld
 projectile.cache
 ac-comphist.dat
+.cache/
+.lsp-session-v1
+eclipse.jdt.ls/
+elisp_tutorial.el
+eshell/

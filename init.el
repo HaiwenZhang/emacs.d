@@ -19,7 +19,7 @@
   (find-file "~/.emacs.d/init.el"))
 
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
-(global-set-key (kbd "<f8>") 'open-init-file)
+(global-set-key (kbd "<f7>") 'open-init-file)
 
 ;; package manage
 (require 'init-package)
@@ -28,21 +28,26 @@
 (require 'init-better-defaults)
 (require 'init-ui)
 (require 'init-swiper)
-(require 'init-org)
+;; (require 'init-org)
 (require 'init-exec-path-from-shell)
 (require 'init-dired)
 ;; ;; program setting
 (require 'init-git)
 (require 'init-company)
 (require 'init-flycheck)
+(require 'init-treemacs)
 ;;(require 'init-yasnippet)
 (require 'init-program)
-(require 'init-ruby)
-(require 'init-web)
-(require 'init-js)
+(require 'init-lsp)
+;; (require 'init-ruby)
+;; (require 'init-web)
+;; (require 'init-js)
 (require 'init-python)
-(require 'init-go)
-(require 'init-yaml)
-(require 'init-markdown)
+(require 'init-java)
+;; (require 'init-go)
+;; (require 'init-yaml)
+;; (require 'init-markdown)
 (require 'init-cpp)
-(require 'init-scala)
+;; (require 'init-scala)
+;; keybindings
+(require 'init-hydra)

@@ -39,12 +39,12 @@
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font
 (set-face-attribute
- 'default nil :font "Source Code Pro 16")
+ 'default nil :font "Source Code Pro 14")
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "Source Code Pro" :size 15)))
+                    (font-spec :family "Source Code Pro" :size 14)))
 
 (use-package default-text-scale
   :ensure t

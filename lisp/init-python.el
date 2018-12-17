@@ -1,25 +1,17 @@
 
-(use-package py-autopep8
-  :ensure t
-  :hook ((python-mode . py-autopep8-enable-on-save)))
-
-;; (use-package company-jedi
-;;   :ensure t
-;;   :config
-;;   (add-hook 'python-mode-hook 'jedi:setup)
-;;   (add-hook 'python-mode-hook (lambda ()
-;;                                 (add-to-list (make-local-variable 'company-backends) 'company-jedi))))
-;;
-
-(use-package anaconda-mode
-  :ensure t
+(use-package python
+  :ensure nil
+  :defines gud-pdb-command-name pdb-path
   :config
-  (add-hook 'python-mode-hook 'anaconda-mode))
+  ;; Disable readline based native completion
+  (setq python-shell-completion-native-enable nil)
 
-(use-package company-anaconda
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook (lambda ()
-				(add-to-list (make-local-variable 'company-backends) 'company-anaconda))))
+  (add-hook 'inferior-python-mode-hook
+            (lambda ()
+              ;; (bind-key "C-c C-z" #'kill-buffer-and-window inferior-python-mode-map)
+              (process-query-on-exit-flag (get-process "Python")))))
+
+(use-package live-py-mode
+  :ensure t)
 
 (provide 'init-python)

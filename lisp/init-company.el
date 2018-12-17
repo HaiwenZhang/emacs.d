@@ -24,6 +24,11 @@
                                 (setq my-company-point (point))))
 (advice-add 'company-complete-common :after (lambda ()
                                 (when (equal my-company-point (point))
-                                                  (yas-expand))))
+                                  (yas-expand))))
+
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 
 (provide 'init-company)
