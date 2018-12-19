@@ -1,3 +1,4 @@
+
 ;;; init-treemacs.el
 
 ;; Copyright (C) 2018  haiwen
@@ -7,7 +8,7 @@
 
 (use-package treemacs
   :ensure t
-  :defines winum-keymap
+  :defer t
   :commands (treemacs-follow-mode
              treemacs-filewatch-mode
              treemacs-fringe-indicator-mode
@@ -17,79 +18,35 @@
          ("M-0"       . treemacs-select-window)
          ("C-x 1"     . treemacs-delete-other-windows)
          ("C-x t 1"   . treemacs-delete-other-windows)
-         ("C-x t t"   . treemacs)
          ("C-x t b"   . treemacs-bookmark)
          ("C-x t C-t" . treemacs-find-file)
          ("C-x t M-t" . treemacs-find-tag)
          :map treemacs-mode-map
          ([mouse-1]   . treemacs-single-click-expand-action))
   :init
-  (with-eval-after-load 'winum
-    (bind-key (kbd "M-9") #'treemacs-select-window winum-keymap))
+  
   :config
-  (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
-        treemacs-file-event-delay           5000
-        treemacs-follow-after-init          t
-        treemacs-follow-recenter-distance   0.1
-        treemacs-goto-tag-strategy          'refetch-index
+  (setq treemacs-follow-after-init          t
+        treemacs-width                      35
         treemacs-indentation                2
-        treemacs-indentation-string         " "
-        treemacs-is-never-other-window      nil
-        treemacs-no-png-images              nil
-        treemacs-recenter-after-file-follow nil
-        treemacs-recenter-after-tag-follow  nil
-        treemacs-show-hidden-files          t
-        treemacs-silent-filewatch           t
-        treemacs-silent-refresh             t
+        treemacs-git-integration            t
+        treemacs-collapse-dirs              3
+        treemacs-silent-refresh             nil
+        treemacs-change-root-without-asking nil
         treemacs-sorting                    'alphabetic-desc
-        treemacs-tag-follow-cleanup         t
-        treemacs-tag-follow-delay           1.5
-        treemacs-width                      30)
-
+        treemacs-show-hidden-files          t
+        treemacs-never-persist              nil
+        treemacs-is-never-other-window      nil
+        treemacs-goto-tag-strategy          'refetch-index)
+  
   (treemacs-follow-mode t)
-  (treemacs-filewatch-mode t)
-  (treemacs-fringe-indicator-mode t)
-  (pcase (cons (not (null (executable-find "git")))
-               (not (null (executable-find "python3"))))
-    (`(t . t)
-     (treemacs-git-mode 'extended))
-    (`(t . _)
-     (treemacs-git-mode 'simple)))
-
-  (if (fboundp 'define-fringe-bitmap)
-      (define-fringe-bitmap 'treemacs--fringe-indicator-bitmap
-        (vector #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111
-                #b00000111111))))
+  (treemacs-filewatch-mode t))
 
 ;; Projectile integration for treemacs
 (use-package treemacs-projectile
   :ensure t
   :after projectile
-  :bind (([M-f8] . treemacs-projectile)
+  :bind (([f9] . treemacs-projectile)
          :map projectile-command-map
          ("h" . treemacs-projectile)))
 

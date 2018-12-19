@@ -11,3 +11,6 @@ ac-comphist.dat
 eclipse.jdt.ls/
 elisp_tutorial.el
 eshell/
+/.dap-breakpoints
+/tramp
+/workspace

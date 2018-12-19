@@ -26,9 +26,9 @@
                                 (when (equal my-company-point (point))
                                   (yas-expand))))
 
-;;(use-package company-box
-;;  :ensure t
-;; :hook (company-mode . company-box-mode))
+(use-package company-box
+ :ensure t
+:hook (company-mode . company-box-mode))
 
 
 (provide 'init-company)

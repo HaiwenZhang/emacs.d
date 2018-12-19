@@ -1,3 +1,4 @@
+
 ;;代码缩进
 (defun indent-buffer()
   (interactive)
@@ -21,85 +22,74 @@
   :init
   (global-hungry-delete-mode))
 
+
+;;(add-to-list 'load-path "./site-lisp/")
+(require 'awesome-pair)
+(dolist (hook (list
+               'c-mode-common-hook
+               'c-mode-hook
+               'c++-mode-hook
+               'java-mode-hook
+               'haskell-mode-hook
+               'emacs-lisp-mode-hook
+               'lisp-interaction-mode-hook
+               'lisp-mode-hook
+               'maxima-mode-hook
+               'ielm-mode-hook
+               'sh-mode-hook
+               'makefile-gmake-mode-hook
+               'php-mode-hook
+               'python-mode-hook
+               'js-mode-hook
+               'go-mode-hook
+               'qml-mode-hook
+               'jade-mode-hook
+               'css-mode-hook
+               'ruby-mode-hook
+               'coffee-mode-hook
+               'rust-mode-hook
+               'qmake-mode-hook
+               'lua-mode-hook
+               'swift-mode-hook
+               'minibuffer-inactive-mode-hook
+               ))
+  (add-hook hook '(lambda () (awesome-pair-mode 1))))
+
+(define-key awesome-pair-mode-map (kbd "(") 'awesome-pair-open-round)
+(define-key awesome-pair-mode-map (kbd "[") 'awesome-pair-open-bracket)
+(define-key awesome-pair-mode-map (kbd "{") 'awesome-pair-open-curly)
+(define-key awesome-pair-mode-map (kbd ")") 'awesome-pair-close-round)
+(define-key awesome-pair-mode-map (kbd "]") 'awesome-pair-close-bracket)
+(define-key awesome-pair-mode-map (kbd "}") 'awesome-pair-close-curly)
+
+(define-key awesome-pair-mode-map (kbd "%") 'awesome-pair-match-paren)
+(define-key awesome-pair-mode-map (kbd "\"") 'awesome-pair-double-quote)
+
+(define-key awesome-pair-mode-map (kbd "M-o") 'awesome-pair-backward-delete) 
+(define-key awesome-pair-mode-map (kbd "C-k") 'awesome-pair-kill)
+
+(define-key awesome-pair-mode-map (kbd "M-\"") 'awesome-pair-wrap-double-quote) 
+(define-key awesome-pair-mode-map (kbd "M-[") 'awesome-pair-wrap-bracket)
+(define-key awesome-pair-mode-map (kbd "M-{") 'awesome-pair-wrap-curly)
+(define-key awesome-pair-mode-map (kbd "M-(") 'awesome-pair-wrap-round)
+(define-key awesome-pair-mode-map (kbd "M-)") 'awesome-pair-unwrap)
+
+(define-key awesome-pair-mode-map (kbd "M-p") 'awesome-pair-jump-right) 
+(define-key awesome-pair-mode-map (kbd "M-n") 'awesome-pair-jump-left) 
+(define-key awesome-pair-mode-map (kbd "M-:") 'awesome-pair-jump-out-pair-and-newline) 
+
+;; (use-package popwin
+;;   :ensure t
+;;   :config (popwin-mode 1))
+
 (use-package expand-region
   :ensure t
   :bind("C-=" . er/expand-region))
 
-(use-package smartparens
-  :ensure t
-  :config
-  (use-package smartparens-config)
-  (use-package smartparens-html)
-  (use-package smartparens-python)
-  (use-package smartparens-latex)
-  (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-  :bind
-  ( ("C-<down>" . sp-down-sexp)
-    ("C-<up>"   . sp-up-sexp)
-    ("M-<down>" . sp-backward-down-sexp)
-    ("M-<up>"   . sp-backward-up-sexp)
-    ("C-M-a" . sp-beginning-of-sexp)
-    ("C-M-e" . sp-end-of-sexp)
-    ("C-M-f" . sp-forward-sexp)
-    ("C-M-b" . sp-backward-sexp)
+(require 'auto-save)
 
-    ("C-M-n" . sp-next-sexp)
-    ("C-M-p" . sp-previous-sexp)
+(setq auto-save-silent t)   ; quietly save
+(setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
 
-    ("C-S-f" . sp-forward-symbol)
-    ("C-S-b" . sp-backward-symbol)
-
-    ("C-<right>" . sp-forward-slurp-sexp)
-    ("M-<right>" . sp-forward-barf-sexp)
-    ("C-<left>"  . sp-backward-slurp-sexp)
-    ("M-<left>"  . sp-backward-barf-sexp)
-
-    ("C-M-t" . sp-transpose-sexp)
-    ("C-M-k" . sp-kill-sexp)
-    ("C-k"   . sp-kill-hybrid-sexp)
-    ("M-k"   . sp-backward-kill-sexp)
-    ("C-M-w" . sp-copy-sexp)
-
-    ("C-M-d" . delete-sexp)
-
-    ("M-<backspace>" . backward-kill-word)
-    ("C-<backspace>" . sp-backward-kill-word)
-    ([remap sp-backward-kill-word] . backward-kill-word)
-
-    ("M-[" . sp-backward-unwrap-sexp)
-    ("M-]" . sp-unwrap-sexp)
-
-    ("C-x C-t" . sp-transpose-hybrid-sexp)
-
-    ("C-c ("  . wrap-with-parens)
-    ("C-c ["  . wrap-with-brackets)
-    ("C-c {"  . wrap-with-braces)
-    ("C-c '"  . wrap-with-single-quotes)
-    ("C-c \"" . wrap-with-double-quotes)
-    ("C-c _"  . wrap-with-underscores)
-    ("C-c `"  . wrap-with-back-quotes)
-    ))
-
-(use-package popwin
-  :ensure t
-  :config (popwin-mode 1))
-
-(use-package projectile
-  :ensure t
-  :demand
-  :init (setq projectile-use-git-grep t)
-  :config
-  (progn
-    (projectile-global-mode 1)
-    (setq projectile-enable-caching t)
-    (setq projectile-require-project-root nil)
-    (setq projectile-completion-system 'ivy)
-    (add-to-list 'projectile-globally-ignored-files ".DS_Store")))
-
-(use-package counsel-projectile
-  :ensure t
-  :config
-  (counsel-projectile-mode 1))
 
 (provide 'init-program)

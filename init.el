@@ -31,13 +31,15 @@
 ;; (require 'init-org)
 (require 'init-exec-path-from-shell)
 (require 'init-dired)
+
 ;; ;; program setting
-(require 'init-git)
-(require 'init-company)
-(require 'init-flycheck)
+(require 'init-projectile)
 (require 'init-treemacs)
+(require 'init-git)
 ;;(require 'init-yasnippet)
 (require 'init-program)
+(require 'init-company)
+(require 'init-flycheck)
 (require 'init-lsp)
 ;; (require 'init-ruby)
 ;; (require 'init-web)
@@ -49,5 +51,6 @@
 ;; (require 'init-markdown)
 (require 'init-cpp)
 ;; (require 'init-scala)
-;; keybindings
+
+;; ;; keybindings
 (require 'init-hydra)

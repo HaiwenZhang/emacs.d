@@ -13,8 +13,8 @@
   (setq ns-use-proxy-icon  nil)
   (setq frame-title-format nil))
 
-(when *is-a-mac*
-  (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+;; (when *is-a-mac*
+;;   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
 
 (use-package which-key
   :ensure t 
