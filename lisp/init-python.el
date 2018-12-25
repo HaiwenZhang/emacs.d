@@ -54,4 +54,15 @@
 ;;                          `("dotnet" ,(concat ms-pyls-dir "Microsoft.Python.LanguageServer.dll"))
 ;;                          :extra-init-params #'ms-pyls-extra-init-params)
 
+(use-package py-autopep8
+  :ensure t
+  :config
+  (defun python-mode-keys ()
+    "Modify python-mode local key map"
+    (local-set-key (kbd "C-c C-p") 'autopep8))
+  (add-hook 'python-mode-hook 'python-mode-keys)
+  (add-hook 'before-save-hook #'autopep8-before-save))
+
+
+
 (provide 'init-python)

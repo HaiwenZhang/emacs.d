@@ -1,4 +1,6 @@
 
+
+
 ;; Disable backup files
 (setq make-backup-files nil) ;; stop creating backup~ files
 (setq auto-save-default nil) ;; stop creating #autosave# files
@@ -13,8 +15,92 @@
   (setq ns-use-proxy-icon  nil)
   (setq frame-title-format nil))
 
+;; 启动emacs时全屏
+;; (setq initial-frame-alist (quote ((fullscreen . maximized))))
+
+
+;;========================================================================================
+;;                                显示空格及其颜色配置
+;;========================================================================================
+;; 显示空格
+;; (require 'whitespace)
+;; (global-whitespace-mode t)
+
+;; 粉色代表超过80个字符的部分,由lines-tail 参数控制
+;; space-mark 参数表示显示空格
+;; newline-mark 表示显示末尾的$符号
+;; lines-tail 表示显示超过80个字符后的部分,用粉色高亮
+;; trailing 表示高亮显示行尾的空格
+;; spaces 下面要控制whitespace-space就必须包含这个参数
+;; newline 下面要控制whitespace-newline就必须包含这个参数
+;; 根据时间自动切换主题
+
+;; (setq whitespace-style
+;;       '(face
+;;         ;; trailing blanks
+;;         trailing
+;;         ;; empty lines at beginning and/or end of buffer
+;;         ;; empty
+;;         ;; line is longer `whitespace-line-column'
+;;         lines-tail
+;;         ;; tab or space at the beginning of the line according to
+;;         ;; `indent-tabs-mode'
+;;         indentation
+;;         ;; show tab as » (see `whitespace-display-mappings')
+;;         tab-mark
+;;         space-mark
+;;         spaces
+;;         ))
+
+;; ;; 设置空格字符的颜色
+;; (set-face-attribute 'whitespace-space nil :background "black")
+;; (set-face-attribute 'whitespace-space nil :foreground "dim gray")
+
 ;; (when *is-a-mac*
 ;;   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+
+;;=======================================================================================
+;;                                  设置(utf-8)模式
+;;=======================================================================================
+;;默认写入文件的编码
+(setq default-buffer-file-coding-system 'utf-8)
+;;默认读取文件的编码
+(prefer-coding-system 'utf-8)
+;;终端方式的编码方式
+;;(set-terminal-coding-system 'utf-8)
+;;键盘输入的编码方式
+;;(set-keyboard-coding-system 'utf-8)
+;;读取或写入文件名的编码方式
+;;(setq file-name-coding-system 'utf-8)
+
+;;========================================================================================
+;;                       复制当前行,当没有选中时,M-w就是复制当前行
+;;========================================================================================
+(global-set-key "\M-w"
+		(lambda ()
+		  (interactive)
+		  (if mark-active
+		      (kill-ring-save (region-beginning)
+				      (region-end))
+		    (progn
+		      (kill-ring-save (line-beginning-position)
+				      (line-end-position))
+		      (message "copied line")))))
+
+;;========================================================================================
+;;                       剪切当前行,当没有选中时,C-w就是剪切当前行
+;;========================================================================================
+(global-set-key "\C-w"
+		(lambda ()
+		  (interactive)
+		  (if mark-active
+		      (kill-region (region-beginning)
+				   (region-end))
+		    (progn
+		      (kill-region (line-beginning-position)
+				   (line-end-position))
+		      (message "killed line")))))
+
 
 (use-package which-key
   :ensure t 

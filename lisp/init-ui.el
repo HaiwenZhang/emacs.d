@@ -1,3 +1,4 @@
+
 ;; Menu/Tool/Scroll bars
 (unless *is-a-mac* (menu-bar-mode -1))
 (and (bound-and-true-p tool-bar-mode) (tool-bar-mode -1))
@@ -6,6 +7,13 @@
 
 ;; 显示行号
 (global-linum-mode 1)
+
+(use-package highlight-indentation
+  :ensure t
+  :config
+  (highlight-indentation-mode t))
+  ;; (set-face-background 'highlight-indentation-face "#e3e3d3")
+  ;; (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
 
 ;; setting theme
 ;; (use-package monokai-theme
@@ -38,13 +46,16 @@
 ;; setting font for mac system
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font
+;; (set-face-attribute
+;;  'default nil :font "Source Code Pro 14")
+
 (set-face-attribute
- 'default nil :font "Source Code Pro 14")
+ 'default nil :font "Fira Code 14")
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "Source Code Pro" :size 14)))
+                    (font-spec :family "Source Code Pro" :size 13)))
 
 (use-package default-text-scale
   :ensure t
