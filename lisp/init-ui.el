@@ -34,6 +34,13 @@
 ;; (use-package gruvbox-theme
 ;;   :ensure t)
 
+;; (use-package moody
+;;   :ensure t
+;;   :config
+;;   (setq x-underline-at-descent-line t)
+;;   (moody-replace-mode-line-buffer-identification)
+;;   (moody-replace-vc-mode))
+
 ;;设置光标
 (setq-default cursor-type 'bar)
 (set-cursor-color "green")

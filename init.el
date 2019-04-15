@@ -46,7 +46,7 @@
 ;; (require 'init-js)
 (require 'init-python)
 (require 'init-java)
-;; (require 'init-go)
+;;(require 'init-go)
 ;; (require 'init-yaml)
 ;; (require 'init-markdown)
 (require 'init-cpp)
