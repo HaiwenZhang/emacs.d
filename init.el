@@ -1,4 +1,4 @@
- ;; Added by Package.el.  This must come before configurations of
+;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
@@ -34,18 +34,14 @@
 
 ;; ;; program setting
 (require 'init-projectile)
-(require 'init-treemacs)
+;;(require 'init-treemacs)
 (require 'init-git)
-;;(require 'init-yasnippet)
+(require 'init-yasnippet)
 (require 'init-program)
 (require 'init-company)
 (require 'init-flycheck)
 (require 'init-lsp)
-;; (require 'init-ruby)
-;; (require 'init-web)
-;; (require 'init-js)
 (require 'init-python)
-(require 'init-java)
 ;;(require 'init-go)
 ;; (require 'init-yaml)
 ;; (require 'init-markdown)
