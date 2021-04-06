@@ -1,0 +1,27 @@
+echo $GOPATH
+echo $GOPATH
+exit
+echo $PATH
+echo $PATH
+echo $PATH
+echo $GOPATH
+echo $PATH
+ls 
+echo $GOPATH
+ls 
+ls 
+source .zshrc
+echo $PATH
+echo $GOPATH
+echo $PATH
+source .profile
+source .profile
+echo $PATH
+echo $GOPATH
+exit
+echo $PATH
+echo $GOPATH
+echo $PATH
+echo $PATH
+echo $GOPATH
+exit
