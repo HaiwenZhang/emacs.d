@@ -1,0 +1,138 @@
+* Basic Key
+** Prefix key
+
+C- Control
+M- Meta
+S- Shift
+
+* Key
+
+C-d: delete-char
+C-x C-f: find-file
+M-x: execute extended command
+C-x 1: hide the other buffer
+C-x 0: hide the current buffer
+
+
+** Universal Arguments
+
+C-u Digit argument 4
+C-u C-u Digit argument 16
+C-u C-u .. Digit argument 4^n
+M-0 to M-9 Digit argument 0 to 9
+C-0 to C-9 Digit argument 0 to 9
+C-M-0 to C-M-9 Digit argument 0 to 9
+C-- Negative argument
+M-- Negative argument
+C-M-- Negative argument
+
+
+M-- M-d kill the previous word before point.
+
+C-x 8 C-h display special character list 
+
+
+M-x eval-buffer  evaluate the entire buffer
+M-x eval-region  evaluate the region that you have marked
+
+** Help key
+C-h m: display the documentation for the major mode
+C-h f: describes a funtion
+C-h v: describes a variable
+C-h k: describes a key
+
+* The Theory of Movement
+
+** The Basics
+C-x C-f: Find (Open) a file
+C-x C-s: Save the buffer
+C-x C-w: Write to a new file
+C-x s: save all files
+C-x b: Switch buffer
+C-x C-b: List all buffers
+C-x k: Kill a buffer
+C-x C-b: Display all open buffers
+C-x C-c: Exits Emacs
+ESC ESC ESC: Exits out of prompts, regions, prefix arguments and returns to just one window
+C-/: Undo Changes
+C-x u: Undo Tree
+F-10: Activates the menu bar
+C-h C <RET> List coding system in use for the current buffer.
+
+
+** Window Management
+
+C-x 0: Deletes the active window
+C-x 1: Deletes other windows
+C-x 2: Split window below
+C-x 3: Split window right
+C-x o: Switch active window
+
+C-x 4 C-f: Finds a file in the other window
+C-x 4 d: Opens M-x dired in the other window
+C-x 4 C-o: Displays a buffer in the other window
+C-x 4 b: Switches the buffer in the other window and makes it the active window
+C-x 4 0: Kills the buffer and window
+
+** Frame Management
+
+C-x 5 2: Create a new frame
+C-x 5 b: Switch buffer in other frame
+C-x 5 0: Delete active frame
+C-x 5 1: Delete other frames
+C-x 5 C-f: Finds a file in the other window
+C-x 5 d: Opens M-x dired in the other window
+C-x 5 C-o: Displays a buffer in ther other window
+
+** Elemental Movement
+
+C-f: Move forward by character
+C-b: Move backward by character
+C-p: Move to previous line
+C-n: Move to next line
+C-j: Create new line
+C-a: Move point to the beginning of the line
+C-e: Move point to the end of the line
+M-m: Move pont to the first non-whitespace character on this line
+M-f: Move forward by word
+M-b: Move backward by word
+
+*** Sub- and Superword Movement
+
+M-x subword-mode: Minor mode that treats CamelCase as distinct words
+M-x superword-mode: Minor mode that treats snake_case as one word
+
+** Moving by S-Expressions
+
+Balenced expressions include:
+  Strings " or '
+  Brackets [], (), {}, <>
+
+C-M-f: Move forward by s-expression
+C-M-b: Move backward by s-expression
+C-M-d: Move down into a list
+C-M-u: Move up out of a list
+C-M-n: Move forward to the next list
+C-M-p: Move backward to the previous list
+
+** Other Movement Commands
+M-}: Move forward to end of paragraph
+M-{: Move backward to start of paragrah
+M-a: Move to beginning of sentence
+M-e: Move to end of sentence
+C-M-a: Move to beginning of defun
+C-M-e: Move to end of defun
+C-x ]: Move forward one page
+C-x [: Move backward one page
+
+** Scrolling
+C-v: Scroll down one page
+M-v: Scroll up one page
+C-M-v: Scroll down the other window
+C-M-S-v: Scroll up the other window
+
+C-x <: Scroll left
+C-x >: Scroll right
+ 
+M-<: Move to the beginning of the buffer
+M->: Move to the end of the buffer

@@ -49,7 +49,7 @@
       (haiwen/set-monospaced-font "Fira Code" "Helvetica" 15 15))
   (if *is-linux*
       ;; font setting for GNU/Linux platform
-      (haiwen/set-monospaced-font "Monaco" "Helvetica" 13 13))
+      (haiwen/set-monospaced-font "Source Code Pro" "Source Code Pro" 20 20))
   )
 
 
