@@ -136,3 +136,70 @@ C-x >: Scroll right
  
 M-<: Move to the beginning of the buffer
 M->: Move to the end of the buffer
+
+** Bookmarks and Registers
+
+Bookmark is permanent, register is transient
+
+C-x r m: Set a bookmark
+C-x r l: List bookmark
+C-x r b: Jump to bookmark
+C-x r n: Store number in register
+C-x r s: Store region in register
+C-x r SPC: Store point in register
+C-x r +: Increment number in register
+C-x r j: Jump to register
+C-x r w: Store window configuration in register
+C-x r f: Store frameset in register
+** Selections and Regions
+C-<SPC>: Sets the mark, and toggles the region
+C-u C-<SPC>: Jumps to the mark, and repeated calls go further back the marking
+S+<left>,... Shift selection similar to other editors
+C-x C-x Exchanges the point and mark, and reactivates your last region
+M-h: Marks the next paragraph
+C-x h: Marks the whole buffer
+C-M-h: Marks the next defun
+C-x C-p: Marks the next page
+M-@: Marks the next word
+C-M-<SPC> and C-M-@: Marks the next s-expression
+C-<SPC>, C-g: Deactivates the region
+
+** Searching and Indexing
+*** Isearch
+C-s: Begins an incremental search
+c-r: begins a backward incremental search
+c-m-s: begins a regexp incremental search
+c-m-r: Begins a regexp backward incremental search
+RET: Pick the selected match
+C-g: Exit Isearch
+M-n: Move to next item in search history
+M-p: Move to previous item in search history
+C-M-i: "TAB"-complete search string against previous search ring
+C-s C-s: Begins Isearch against last search string
+C-r C-r: Begins backward Isearch against last search string
+C-w: Add word at point to search string
+C-M-y: Add character at point to search string
+M-s C-e: Add rest of line at point to search string
+C-y: Paste from clipboard to search string
+M-s w: Isearch forward for word
+M-s _: Isearch forward for symbol
+M-s .: Isearch forward for symbol at point
+
+*** Occur mode
+M-s o: Occur mode
+M-n, M-p: Go to next and previous occurrence
+<,>: Go to beginning and end of buffer
+g: Revert the buffer, refreshing the search results
+q: quits occur mode
+e: Switches to occur edit mode
+C-c C-c: Exits occur edit mode and applies changes
+
+** Other Movement Commands
+M-r: Repositions the point to the top left, middle left, or bottom left
+C-l: Recenters the point to the middle, top, or bottom in the buffer
+C-M-l: Repositions the comment or definition so it is in view in the buffer
+C-x C-n: Sets the goal column, the horizontal position for point
+C-u C-x C-n: Resets the goal column, the horizontal position for the point
+M-g M-g: Go to line
+M-g TAB: Go to column
+M-g c: Go to character position
