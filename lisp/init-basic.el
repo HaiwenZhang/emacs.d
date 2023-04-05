@@ -1,13 +1,6 @@
 
 (require 'init-consts)
 
-(with-no-warnings
-  (cond
-   (*is-mac*
-	(setq mac-option-modifier 'meta
-		  mac-command-modifier 'super))))
-
-
 ;; Encoding
 ;; UTF-8 as the default coding system
 (when (fboundp 'set-charset-priority)

@@ -151,6 +151,7 @@ C-x r +: Increment number in register
 C-x r j: Jump to register
 C-x r w: Store window configuration in register
 C-x r f: Store frameset in register
+
 ** Selections and Regions
 C-<SPC>: Sets the mark, and toggles the region
 C-u C-<SPC>: Jumps to the mark, and repeated calls go further back the marking
